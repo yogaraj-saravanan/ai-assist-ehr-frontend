@@ -1,61 +1,112 @@
-# TypeScript Next.js example
+# AI Assist EHR - Frontend
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+This is a mock frontend built with **Next.js** and **Tailwind CSS** to interact with the backend API of the **AI Assist EHR** project.
 
-## Deploy your own
+The frontend allows users to schedule appointments using natural language input, simulating how an AI assistant would process appointment requests.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+---
 
-## How to use it?
+## 🚀 Features
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+- ✍️ Simple text-based appointment scheduling
+- 🔗 Connects to the backend API (`/ai/process`)
+- 📜 Displays API responses in a clean UI
+- 🧪 Useful for testing backend APIs with a lightweight frontend
+
+---
+
+## 🏗️ Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- React (App Router)
+
+---
+
+## ⚙️ Getting Started
+
+### 1️⃣ Clone the Repository
 
 ```bash
-npx create-next-app --example with-typescript with-typescript-app
+git clone https://github.com/yogaraj-saravanan/ai-assist-ehr-frontend.git
+cd ai-assist-ehr-frontend
 ```
+
+### 2️⃣ Install Dependencies
 
 ```bash
-yarn create next-app --example with-typescript with-typescript-app
+npm install
 ```
+
+### 3️⃣ Run Development Server
 
 ```bash
-pnpm create next-app --example with-typescript with-typescript-app
+npm run dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Frontend will be running on:
 
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```shell
-npm install --save-dev typescript
+```
+http://localhost:3000
 ```
 
-```shell
-yarn install --save-dev typescript
+---
+
+## 🔗 Backend API Configuration
+
+Make sure your backend is running (typically on port `3001`).
+
+The API endpoint expected by the frontend is:
+
+```
+POST http://localhost:3001/ai/process
 ```
 
-```shell
-pnpm install --save-dev typescript
+### ✅ Example Request Body:
+
+```json
+{
+  "input": "John Doe comes at 10 AM tomorrow for therapy"
+}
 ```
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+### ✅ Example Response:
 
-```shell
-npm install --save-dev @types/react @types/react-dom @types/node
+```json
+{
+  "patient": { ... },
+  "episode": { ... },
+  "appointment": { ... }
+}
 ```
 
-```shell
-yarn install --save-dev @types/react @types/react-dom @types/node
+> The frontend will display this response directly.
+
+---
+
+## 🗺️ Project Structure
+
+```
+/app
+  /appointments   → Appointment scheduler page
+  layout.tsx      → Root layout
+  page.tsx        → Home page
+/public
+/styles
+  globals.css     → Tailwind CSS styles
 ```
 
-```shell
-pnpm install --save-dev @types/react @types/react-dom @types/node
-```
+---
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+## 🎯 Future Improvements (Optional)
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+- List all appointments in a table view
+- Add success/error banners
+- Deploy to Vercel or Netlify
+- Add more API testers for different endpoints
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+---
+
+## 📜 License
+
+MIT License

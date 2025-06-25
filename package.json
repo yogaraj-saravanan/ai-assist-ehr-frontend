@@ -1,4 +1,7 @@
 {
+  "name": "ai-assist-ehr-frontend",
+  "description": "Mock frontend for AI Assist EHR to test backend APIs using Next.js and Tailwind CSS.",
+  "author": "Yogaraj Saravanan",
   "private": true,
   "scripts": {
     "dev": "next",
